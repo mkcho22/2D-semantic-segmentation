@@ -1,0 +1,30 @@
+{
+  "description": "Final course submission source snapshot; original source files preserved byte-for-byte. Checkpoint is retained locally and excluded from Git.",
+  "files": {
+    "data.py": {
+      "sha256": "7eb3faf4c8223ed5c599b0718fd44d98d4ce33d91dedb70fca658a2fefb58632",
+      "bytes": 2781
+    },
+    "demo.py": {
+      "sha256": "55c6fb62e35475c32716610077188890285f0d1a29aa9fd423bbed216c0d1091",
+      "bytes": 3910
+    },
+    "main.py": {
+      "sha256": "38ca71529f29a66dc9989c3b657a5ad38de9d7cc3a93a76a470563e454ea706f",
+      "bytes": 1686
+    },
+    "train.py": {
+      "sha256": "1965d2b0effcec17848ddb92089011b5e45c0c598fd1d639c3bb21c54ad113c6",
+      "bytes": 4641
+    },
+    "utils.py": {
+      "sha256": "e42257b83a3d936117b7274a82f9541928d4c3845fa00b7bf126efb1f46cda34",
+      "bytes": 5985
+    },
+    "segmentation_model_A4_2.pth": {
+      "sha256": "81f1dd0167cba31552d99145e524232a65bd6dd0b429633b48b037c6cc5c1d5b",
+      "bytes": 93614031,
+      "included_in_git": false
+    }
+  }
+}

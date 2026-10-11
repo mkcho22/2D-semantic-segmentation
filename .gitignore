@@ -1,0 +1,36 @@
+# Local datasets, trained weights and generated runs
+2D Segmentation/
+data/
+datasets/
+weights/
+runs/
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.zip
+*.tar
+*.tar.gz
+
+# Python / editors / credentials
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+.DS_Store
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# New evaluations are local until deliberately reviewed
+results/evaluation.json
+results/data-audit.json

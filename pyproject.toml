@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "carla-semantic-segmentation"
+version = "0.1.0"
+description = "Checkpoint-compatible U-Net for a 13-class CARLA segmentation course project"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.3,<3", "numpy>=1.24,<3", "Pillow>=10,<13"]
+
+[project.scripts]
+carla-seg = "carla_seg.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="660" viewBox="0 0 1400 660" role="img" aria-labelledby="title description">
+  <title id="title">Custom U-Net for CARLA semantic segmentation</title>
+  <desc id="description">RGB inputs at 600 by 800 pass through four encoder stages, a 1024-to-512 channel bottleneck, four decoder stages with skip concatenations and learned transposed convolutions, and a 13-class segmentation head. Original code uses equal-weight cross entropy and Dice loss with AdamW.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="none" stroke="#67e8c0" stroke-width="1.7"/></marker>
+  </defs>
+  <rect width="1400" height="660" rx="20" fill="#0b1324"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="50" y="54" fill="#67e8c0" font-size="18" letter-spacing="2">MODEL / ORIGINAL IMPLEMENTATION</text>
+    <text x="50" y="110" fill="#f3f6fc" font-size="40" font-weight="700">From driving frames to pixel-level classes</text>
+    <text x="50" y="149" fill="#a7b5ca" font-size="21">Custom U-Net · 23,381,901 parameters · 13 semantic classes</text>
+    <path d="M430 247 L430 209 L950 209 L950 247" fill="none" stroke="#67e8c0" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+    <text x="690" y="196" fill="#67e8c0" font-size="18" text-anchor="middle">Four corresponding encoder-to-decoder skips</text>
+    <g fill="#142138" stroke="#2b405c" stroke-width="1.4">
+      <rect x="50" y="253" width="240" height="187" rx="14"/>
+      <rect x="310" y="253" width="240" height="187" rx="14"/>
+      <rect x="570" y="253" width="240" height="187" rx="14"/>
+      <rect x="830" y="253" width="240" height="187" rx="14"/>
+      <rect x="1090" y="253" width="260" height="187" rx="14"/>
+    </g>
+    <g stroke="#67e8c0" stroke-width="2" marker-end="url(#arrow)">
+      <line x1="291" y1="343" x2="305" y2="343"/>
+      <line x1="551" y1="343" x2="565" y2="343"/>
+      <line x1="811" y1="343" x2="825" y2="343"/>
+      <line x1="1071" y1="343" x2="1085" y2="343"/>
+    </g>
+    <g fill="#67e8c0" font-size="17" letter-spacing="1">
+      <text x="70" y="289">01  INPUT</text><text x="330" y="289">02  ENCODER</text><text x="590" y="289">03  BOTTLENECK</text><text x="850" y="289">04  DECODER</text><text x="1110" y="289">05  OUTPUT</text>
+    </g>
+    <g fill="#f3f6fc" font-size="22" font-weight="700">
+      <text x="70" y="334">RGB frame</text>
+      <text x="330" y="334" font-size="19">64 → 128 → 256 → 512</text>
+      <text x="590" y="334">1024 → 512</text>
+      <text x="850" y="334" font-size="19">256 → 128 → 64 → 64</text>
+      <text x="1110" y="334">13-class logits</text>
+    </g>
+    <g fill="#a7b5ca" font-size="18">
+      <text x="70" y="375">3 × 600 × 800</text><text x="70" y="407">ImageNet normalization</text>
+      <text x="330" y="375">4 × MaxPool2d (2 × 2)</text><text x="330" y="407">Dropout2d: p = 0.5</text>
+      <text x="590" y="375">Conv + BN + ReLU</text><text x="590" y="407">Spatial size: 37 × 50</text>
+      <text x="850" y="375">4 × transposed conv</text><text x="850" y="407">Crop + concatenate</text>
+      <text x="1110" y="375">1 × 1 convolution</text><text x="1110" y="407">Argmax → class map</text>
+    </g>
+    <g fill="#101d31" stroke="#253851">
+      <rect x="50" y="480" width="632" height="129" rx="12"/>
+      <rect x="708" y="480" width="642" height="129" rx="12"/>
+    </g>
+    <text x="72" y="516" fill="#f3f6fc" font-size="21" font-weight="700">Original training configuration</text>
+    <text x="72" y="552" fill="#a7b5ca" font-size="20">Loss: 0.5 × CrossEntropy + 0.5 × Dice</text>
+    <text x="72" y="583" fill="#a7b5ca" font-size="19">AdamW · learning rate 0.0002 · weight decay 0.01</text>
+    <text x="730" y="516" fill="#f3f6fc" font-size="21" font-weight="700">Implementation details</text>
+    <text x="730" y="552" fill="#a7b5ca" font-size="19">Core blocks: 3 × 3 Conv → BatchNorm → ReLU</text>
+    <text x="730" y="583" fill="#a7b5ca" font-size="19">Decoder channels above show each stage's output width.</text>
+    <text x="50" y="638" fill="#7d91ab" font-size="16">Architecture verified against the original model and checkpoint; configuration is not a claim of a reproduced full training run.</text>
+  </g>
+</svg>

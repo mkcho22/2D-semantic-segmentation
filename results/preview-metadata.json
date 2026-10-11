@@ -1,0 +1,285 @@
+{
+  "artifact": "assets/qualitative-preview.png",
+  "purpose": "Qualitative preview of the original saved checkpoint; not full validation and not a historical benchmark.",
+  "created_date": "2026-10-11",
+  "checkpoint": {
+    "filename": "segmentation_model_A4_2.pth",
+    "sha256": "81f1dd0167cba31552d99145e524232a65bd6dd0b429633b48b037c6cc5c1d5b",
+    "state_dict_loaded_strictly": true,
+    "safe_load_weights_only": true,
+    "parameter_count": 23381901
+  },
+  "architecture": {
+    "name": "Original custom U-Net",
+    "classes": 13,
+    "encoder_channels": [
+      64,
+      128,
+      256,
+      512,
+      1024
+    ],
+    "skip_connections": 4,
+    "dropout_probability": 0.5,
+    "inference_mode": "eval"
+  },
+  "dataset": {
+    "name": "Local CARLA 2D Segmentation dataset",
+    "split": "Validation",
+    "matched_pair_count": 999,
+    "pairing": "Exact matching RGB and Label filenames",
+    "selection_rule": "Sorted matching PNG filenames at zero-based indices 0, floor(N/3), floor(2*N/3); no quality-based selection."
+  },
+  "preprocessing": {
+    "input_height": 600,
+    "input_width": 800,
+    "native_resolution": true,
+    "rgb_scaling": "uint8 / 255.0",
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "label_channel": "First channel for multi-channel labels",
+    "label_remap": {
+      "255": 0
+    }
+  },
+  "runtime": {
+    "device": "cpu",
+    "machine": "arm64",
+    "python": "3.13.3",
+    "pytorch": "2.9.1",
+    "cpu_threads": 4,
+    "seed": 0,
+    "batch_size": 1
+  },
+  "samples": [
+    {
+      "filename": "02_00_000.png",
+      "sorted_matched_index_zero_based": 0,
+      "height": 600,
+      "width": 800,
+      "ground_truth_classes_present": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "predicted_classes_present": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "filename": "03_00_083.png",
+      "sorted_matched_index_zero_based": 333,
+      "height": 600,
+      "width": 800,
+      "ground_truth_classes_present": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "predicted_classes_present": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "filename": "F6-69.png",
+      "sorted_matched_index_zero_based": 666,
+      "height": 600,
+      "width": 800,
+      "ground_truth_classes_present": [
+        0,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "predicted_classes_present": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    }
+  ],
+  "palette": [
+    {
+      "id": 0,
+      "name": "Unlabeled",
+      "rgb": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Building",
+      "rgb": [
+        70,
+        70,
+        70
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Fence",
+      "rgb": [
+        190,
+        153,
+        153
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Other",
+      "rgb": [
+        55,
+        90,
+        80
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Pedestrian",
+      "rgb": [
+        220,
+        20,
+        60
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Pole",
+      "rgb": [
+        153,
+        153,
+        153
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Road line",
+      "rgb": [
+        157,
+        234,
+        50
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Road",
+      "rgb": [
+        128,
+        64,
+        128
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Sidewalk",
+      "rgb": [
+        244,
+        35,
+        232
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Vegetation",
+      "rgb": [
+        107,
+        142,
+        35
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Vehicle",
+      "rgb": [
+        220,
+        220,
+        0
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Wall",
+      "rgb": [
+        102,
+        102,
+        156
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Traffic sign",
+      "rgb": [
+        220,
+        200,
+        0
+      ]
+    }
+  ],
+  "limitations": [
+    "Only three deterministically selected images are shown.",
+    "No full validation metric is claimed.",
+    "Preview panels are displayed at 480×360 after inference at 800×600.",
+    "Dataset split independence and original checkpoint training history have not been independently verified."
+  ]
+}

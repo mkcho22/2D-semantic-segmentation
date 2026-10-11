@@ -1,0 +1,2 @@
+# Install the editable package and its torch, numpy, and Pillow dependencies.
+-e .

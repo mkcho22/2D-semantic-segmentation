@@ -1,0 +1,13 @@
+case,optimizer,loss,learning_rate,batch_size,weight_decay,validation_miou_percent,validation_loss,reported_convergence_epoch,submitted_configuration,source
+A1,AdamW,Focal+Dice,0.0001,4,0.01,51.43,0.2373,20,false,revised presentation p.10
+A2,AdamW,CrossEntropy+Dice,0.0001,4,0.01,53.15,0.4440,29,false,revised presentation p.10
+A3,AdamW,CrossEntropy+Dice,0.00005,4,0.01,52.64,0.4134,34,false,revised presentation p.10
+A4,AdamW,CrossEntropy+Dice,0.0002,4,0.01,54.85,0.4175,21,true,revised presentation p.10
+A5,AdamW,CrossEntropy+Dice,0.0002,8,0.01,53.98,0.4155,31,false,revised presentation p.10
+A6,AdamW,CrossEntropy+Dice,0.0002,2,0.01,55.14,0.4647,33,false,revised presentation p.10
+S1,SGD,CrossEntropy+Dice,0.005,4,0.0001,52.25,0.4240,43,false,revised presentation p.10
+S2,SGD,Focal+Dice,0.005,4,0.0001,48.97,0.2350,51,false,revised presentation p.10
+S3,SGD,CrossEntropy+Dice,0.0025,4,0.0001,50.56,0.4501,38,false,revised presentation p.10
+S4,SGD,CrossEntropy+Dice,0.01,4,0.0001,53.42,0.4127,30,false,revised presentation p.10
+S5,SGD,CrossEntropy+Dice,0.01,8,0.0001,52.91,0.4286,45,false,revised presentation p.10
+S6,SGD,CrossEntropy+Dice,0.01,2,0.0001,51.10,0.4033,31,false,revised presentation p.10

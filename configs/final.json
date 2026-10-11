@@ -1,0 +1,26 @@
+{
+  "purpose": "Reference configuration from final course submission; CLI defaults mirror these values.",
+  "model": "UNet",
+  "num_classes": 13,
+  "height": 600,
+  "width": 800,
+  "batch_size": 4,
+  "optimizer": "AdamW",
+  "learning_rate": 0.0002,
+  "weight_decay": 0.01,
+  "epochs": 100,
+  "patience": 10,
+  "dropout": 0.5,
+  "loss": "0.5 * CrossEntropy + 0.5 * multiclass Dice",
+  "normalization_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "normalization_std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "map_label_255_to": 0
+}
